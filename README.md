@@ -1,14 +1,14 @@
-# Projet n°9 : Abernathy Clinic - Patient
+# Projet n°9 : Abernathy Clinic - Note History
 
 Sprint n° 2 : Visualistation, création et mise à jour des notes d'un patient sur l'application.
 
 Architecture Micro Service Back-End - Spring Boot / Gradle
 
-#### Lien Docker : https://hub.docker.com/r/orionbs/mediscreen_patient
+#### Lien Docker : https://hub.docker.com/r/orionbs/mediscreen_notehistory
 
-#### Lien Github : https://github.com/OrionBS/Projet9_AbernathyClinic_Patient
+#### Lien Github : https://github.com/OrionBS/Projet9_AbernathyClinic_NoteHistory
 
-#### Lien Github Note History : https://github.com/OrionBS/Projet9_AbernathyClinic_NoteHistory
+#### Lien Github Patient : https://github.com/OrionBS/Projet9_AbernathyClinic_Patient
 #### Lien Github Diabete Risk : https://github.com/OrionBS/Projet9_AbernathyClinic_DiabeteRisk
 #### Lien Github Front-End : https://github.com/OrionBS/Projet9_AbernathyClinic_Front
 
