@@ -5,6 +5,7 @@ import com.abernathyclinic.MediscreenNotesHistory.services.PatientNoteService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,11 +21,10 @@ public class InitialData {
 
     @PostConstruct
     public void creatingPatients() {
-        PatientNote patient1 = new PatientNote(1, "test1");
-        PatientNote patient2 = new PatientNote(1, "test1");
-        PatientNote patient3 = new PatientNote(1, "test1");
-        PatientNote patient4 = new PatientNote(1, "test1");
-        List<PatientNote> patients = Arrays.asList(patient1, patient2, patient3, patient4);
+        PatientNote patient1 = new PatientNote(1, LocalDate.now(), "Good tension.");
+        PatientNote patient2 = new PatientNote(2, LocalDate.now(), "Bad cardiac responsivity.");
+        PatientNote patient3 = new PatientNote(3, LocalDate.now(), "Beautiful.");
+        List<PatientNote> patients = Arrays.asList(patient1, patient2, patient3);
         for (PatientNote patient : patients) {
             patientNoteService.creatingPatientNote(patient);
         }

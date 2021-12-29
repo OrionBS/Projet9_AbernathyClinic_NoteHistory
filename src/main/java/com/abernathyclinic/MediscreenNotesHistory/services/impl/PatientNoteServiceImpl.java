@@ -5,6 +5,8 @@ import com.abernathyclinic.MediscreenNotesHistory.repositories.PatientNoteReposi
 import com.abernathyclinic.MediscreenNotesHistory.services.PatientNoteService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -26,7 +28,10 @@ public class PatientNoteServiceImpl implements PatientNoteService {
         if (patientNote.getPatientId() == null || patientNote.getPractitionerNote() == null) {
             return null;
         }
+
         patientNote.setNoteId(lastId);
+
+        patientNote.setDateOfCreation(LocalDate.now());
 
         return patientNoteRepository.save(patientNote);
     }
@@ -35,6 +40,8 @@ public class PatientNoteServiceImpl implements PatientNoteService {
     public List<PatientNote> readingPatientNotes(Integer patientId) {
 
         List<PatientNote> patientNotes = patientNoteRepository.findByPatientId(patientId);
+
+        patientNotes.sort(Comparator.comparing(PatientNote::getDateOfCreation));
 
         return patientNotes;
     }
@@ -64,7 +71,7 @@ public class PatientNoteServiceImpl implements PatientNoteService {
     @Override
     public boolean deletingPatientNote(Integer noteId) {
 
-        if (patientNoteRepository.existsById(noteId)) {
+        if (!patientNoteRepository.existsById(noteId)) {
             return false;
         }
 

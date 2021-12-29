@@ -37,7 +37,7 @@ public class PatientNoteController {
         List<PatientNote> patientNotesReceived = patientNoteService.readingPatientNotes(patientId);
 
         if (patientNotesReceived == null) {
-            return new ResponseEntity<>("La note patient recherché est inconnu.",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("La note patient recherché est inconnu.",HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(patientNotesReceived,HttpStatus.OK);
@@ -61,7 +61,7 @@ public class PatientNoteController {
         boolean answer = patientNoteService.deletingPatientNote(noteId);
 
         if (!answer) {
-            return new ResponseEntity<>("La note patient est inconnu.",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("La note patient est inconnu.",HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(answer,HttpStatus.OK);

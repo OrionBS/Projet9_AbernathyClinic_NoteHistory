@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.LocalDate;
+
 @Document(collection = "PatientNote")
 public class PatientNote {
 
@@ -13,17 +15,22 @@ public class PatientNote {
     @Field(value = "PatientId")
     private Integer patientId;
 
+    @Field(value = "DateOfCreation")
+    private LocalDate dateOfCreation;
+
     @Field(value = "PractitionerNotes")
     private String practitionerNote;
 
-    public PatientNote(Integer noteId, Integer patientId, String practitionerNote) {
+    public PatientNote(Integer noteId, Integer patientId, LocalDate dateOfCreation, String practitionerNote) {
         this.noteId = noteId;
         this.patientId = patientId;
+        this.dateOfCreation = dateOfCreation;
         this.practitionerNote = practitionerNote;
     }
 
-    public PatientNote(Integer patientId, String practitionerNote) {
+    public PatientNote(Integer patientId, LocalDate dateOfCreation, String practitionerNote) {
         this.patientId = patientId;
+        this.dateOfCreation = dateOfCreation;
         this.practitionerNote = practitionerNote;
     }
 
@@ -52,6 +59,14 @@ public class PatientNote {
 
     public void setPractitionerNote(String practitionerNote) {
         this.practitionerNote = practitionerNote;
+    }
+
+    public LocalDate getDateOfCreation() {
+        return dateOfCreation;
+    }
+
+    public void setDateOfCreation(LocalDate dateOfCreation) {
+        this.dateOfCreation = dateOfCreation;
     }
 
     @Override
