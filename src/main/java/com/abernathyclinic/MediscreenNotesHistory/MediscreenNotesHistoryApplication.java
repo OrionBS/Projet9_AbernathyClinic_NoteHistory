@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MediscreenNotesHistoryApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MediscreenNotesHistoryApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MediscreenNotesHistoryApplication.class, args);
+    }
 
 }
