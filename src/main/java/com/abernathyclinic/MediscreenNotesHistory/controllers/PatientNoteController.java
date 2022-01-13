@@ -36,7 +36,7 @@ public class PatientNoteController {
 
         List<PatientNote> patientNotesReceived = patientNoteService.readingPatientNotes(patientId);
 
-        if (patientNotesReceived == null) {
+        if (patientNotesReceived.isEmpty()) {
             return new ResponseEntity<>("La note patient recherché est inconnu.",HttpStatus.NOT_FOUND);
         }
 
