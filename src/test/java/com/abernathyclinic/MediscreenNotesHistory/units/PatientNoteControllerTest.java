@@ -77,7 +77,7 @@ public class PatientNoteControllerTest {
         //GIVEN
         PatientNote patientNote = new PatientNote(25,12, LocalDate.now(),"testNote");
         List<PatientNote> patientNotes = Collections.singletonList(patientNote);
-        Mockito.when(patientNoteService.readingPatientNotes(patientNote.getPatientId())).thenReturn(null);
+        Mockito.when(patientNoteService.readingPatientNotes(patientNote.getPatientId())).thenReturn(Collections.emptyList());
 
         //WHEN
         ResponseEntity<Object> patientNoteRead = patientNoteController.readingPatientNotes(patientNote.getPatientId());
